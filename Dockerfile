@@ -1,7 +1,7 @@
 FROM jeanblanchard/tomcat:8
 MAINTAINER Markus Birth <markus@birth-online.de>
 
-ENV SUBSONIC_VERSION="6.0" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" TZ="Europe/Berlin"
+ENV SUBSONIC_VERSION="6.0" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" TZ="Europe/Berlin" MAX_MEM="256"
 
 LABEL version="$SUBSONIC_VERSION"
 LABEL description="Subsonic media streamer"
@@ -22,7 +22,7 @@ RUN apk upgrade -U \
  && unzip subsonic.war.zip && rm subsonic.war.zip && mv subsonic.war ROOT.war
 
 ADD server.xml ${CATALINA_HOME}/conf/
-ENV JAVA_OPTS="-Dsubsonic.contextPath=/ -Dsubsonic.home=/data -Dsubsonic.defaultMusicFolder=/music/ -Dsubsonic.defaultPodcastFolder=/podcasts/ -Dsubsonic.defaultPlaylistFolder=/playlists/"
+ENV JAVA_OPTS="-Xmx${MAX_MEM}m -Dsubsonic.host=0.0.0.0 -Dsubsonic.contextPath=/ -Dsubsonic.home=/data -Dsubsonic.defaultMusicFolder=/music/ -Dsubsonic.defaultPodcastFolder=/podcasts/ -Dsubsonic.defaultPlaylistFolder=/playlists/ -Djava.awt.headless=true"
 
 VOLUME ["/data", "/music/", "/playlists/", "/podcasts/"]
 

@@ -8,7 +8,8 @@ LABEL description="Subsonic media streamer"
 
 RUN apk upgrade -U \
  && apk add ca-certificates ffmpeg lame tzdata \
- && setup-timezone -z ${TZ} \
+ && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
+ && echo "${TZ}" > /etc/timezone \
  && apk del tzdata \
  && rm -rf /var/cache/* \
  && mkdir -p /data/transcode /music/ /playlists/ /podcasts/ \

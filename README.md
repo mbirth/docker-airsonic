@@ -1,21 +1,44 @@
-
 This repository contains configuration files for building a 
-Docker (http://docker.io) image for the Subsonic media streamer.
+[Docker](https://docker.com/) image for the Subsonic media streamer.
 
-## Noteworthy
-
-* Subsonic 6.0 (http://www.subsonic.org)
-* uses jeanblanchard/docker-tomcat with Alpine Linux
-* compiled to a 266 MB image instead of 484 MB
+[![](https://imagelayers.io/badge/mbirth/subsonic:latest.svg)](https://imagelayers.io/?images=mbirth/subsonic:latest 'Get your own badge on imagelayers.io')
 
 
-## Build your own image
+Noteworthy
+----------
+
+* [Subsonic 6.0](http://www.subsonic.org/)
+* based on [cyrilix](https://github.com/cyrilix)/[docker-subsonic](https://github.com/cyrilix/docker-subsonic)
+* uses [jeanblanchard/tomcat](https://hub.docker.com/r/jeanblanchard/tomcat/) with Alpine Linux
+* compiles to a 266 MB image instead of cyrilix's 484 MB
+
+
+Volumes
+-------
+
+* `/subsonic` --- Directory to store Subsonic's log, configuration and database
+* `/music` --- Default music folder
+* `/podcasts` --- Default podcast folder
+* `/playlists` --- Default playlist folder
+
+
+Environment Variables
+---------------------
+
+* `TZ` --- timezone setting, default: `Europe/Berlin`
+* `MAX_MEM` --- maximum Java heap size in megabytes, default: `256`
+
+
+Build your own image
+--------------------
 
 ```shell
 $ docker build -t <your-name>/docker-subsonic .
 ```
 
-## Get a pre-built image
+
+Get a pre-built image
+---------------------
 
 A current image is available as a trusted build from the Docker index:
 
@@ -27,13 +50,14 @@ The repository page is at
 https://hub.docker.com/r/mbirth/subsonic/
 
 
-## Run a container with this image
+Run a container with this image
+-------------------------------
 
 ```shell
 $ docker run \
   --detach \
   --publish 8080:8080 \
-  --volume "/wherever/your/music/is:/opt/music/:ro" \
+  --volume "/wherever/your/music/is:/music/:ro" \
   <your-name>/subsonic
 
 ```

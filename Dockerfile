@@ -10,8 +10,6 @@ RUN apk upgrade -U \
  && apk add ca-certificates ffmpeg lame tzdata \
  && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
  && echo "${TZ}" > /etc/timezone \
- && apk del tzdata \
- && rm -rf /var/cache/* \
  && mkdir -p /data/transcode /music/ /playlists/ /podcasts/ \
  && ln -s /usr/bin/lame /data/transcode/lame \
  && ln -s /usr/bin/ffmpeg /data/transcode/ffmpeg \
@@ -19,7 +17,11 @@ RUN apk upgrade -U \
  && rm -rf ROOT \
  && wget -q "http://downloads.sourceforge.net/project/subsonic/subsonic/$SUBSONIC_VERSION/subsonic-$SUBSONIC_VERSION-war.zip?r=http%3A%2F%2Fwww.subsonic.org%2Fpages%2Fdownload2.jsp%3Ftarget%3Dsubsonic-$SUBSONIC_VERSION-standalone.tar.gz&ts=1431096340&use_mirror=garr" \
     -O subsonic.war.zip \
- && unzip subsonic.war.zip && rm subsonic.war.zip && mv subsonic.war ROOT.war
+ && unzip subsonic.war.zip \
+ && rm subsonic.war.zip \
+ && mv subsonic.war ROOT.war \
+ && apk del tzdata \
+ && rm -rf /var/cache/*
 
 ADD server.xml ${CATALINA_HOME}/conf/
 ENV JAVA_OPTS="-Xmx${MAX_MEM}m -Dsubsonic.host=0.0.0.0 -Dsubsonic.contextPath=/ -Dsubsonic.home=/data -Dsubsonic.defaultMusicFolder=/music/ -Dsubsonic.defaultPodcastFolder=/podcasts/ -Dsubsonic.defaultPlaylistFolder=/playlists/ -Djava.awt.headless=true"

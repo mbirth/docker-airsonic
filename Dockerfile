@@ -1,13 +1,15 @@
 FROM jeanblanchard/tomcat:8
 MAINTAINER Markus Birth <markus@birth-online.de>
 
-ENV SUBSONIC_VERSION 6.0
+ENV SUBSONIC_VERSION="6.0" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" TZ="Europe/Berlin"
 
 LABEL version="$SUBSONIC_VERSION"
 LABEL description="Subsonic media streamer"
 
 RUN apk upgrade -U \
- && apk add ca-certificates ffmpeg lame \
+ && apk add ca-certificates ffmpeg lame tzdata \
+ && setup-timezone -z ${TZ} \
+ && apk del tzdata \
  && rm -rf /var/cache/* \
  && mkdir -p /data/transcode /music/ /playlists/ /podcasts/ \
  && ln -s /usr/bin/lame /data/transcode/lame \
@@ -21,9 +23,6 @@ RUN apk upgrade -U \
 ADD server.xml ${CATALINA_HOME}/conf/
 ENV JAVA_OPTS="-Dsubsonic.contextPath=/ -Dsubsonic.home=/data -Dsubsonic.defaultMusicFolder=/music/ -Dsubsonic.defaultPodcastFolder=/podcasts/ -Dsubsonic.defaultPlaylistFolder=/playlists/"
 
-VOLUME /data
-VOLUME /music/
-VOLUME /playlists/
-VOLUME /podcasts/
+VOLUME ["/data", "/music/", "/playlists/", "/podcasts/"]
 
 EXPOSE 8080

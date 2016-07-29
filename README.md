@@ -2,6 +2,7 @@ This repository contains configuration files for building a
 [Docker](https://docker.com/) image for the Subsonic media streamer.
 
 [![](https://imagelayers.io/badge/mbirth/subsonic:latest.svg)](https://imagelayers.io/?images=mbirth/subsonic:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/mbirth/subsonic.svg)](http://microbadger.com/#/images/mbirth/subsonic "Get your own image badge on microbadger.com")
 
 
 Noteworthy
@@ -9,8 +10,8 @@ Noteworthy
 
 * [Subsonic 6.0](http://www.subsonic.org/)
 * based on [cyrilix](https://github.com/cyrilix)/[docker-subsonic](https://github.com/cyrilix/docker-subsonic)
-* uses [jeanblanchard/tomcat](https://hub.docker.com/r/jeanblanchard/tomcat/) with Alpine Linux
-* compiles to a 266 MB image instead of cyrilix's 484 MB
+* uses [jeanblanchard](https://github.com/jeanblanchard)/[tomcat](https://hub.docker.com/r/jeanblanchard/tomcat/) with Alpine Linux
+* compiles to a 266 MB image instead of [cyrilix](https://hub.docker.com/r/cyrilix/subsonic/)'s 484 MB
 
 
 Volumes

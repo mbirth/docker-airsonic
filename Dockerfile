@@ -5,6 +5,10 @@ ENV SUBSONIC_VERSION="6.0" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.U
 
 LABEL version="$SUBSONIC_VERSION"
 LABEL description="Subsonic media streamer"
+LABEL org.label-schema.name="Subsonic" \
+      org.label-schema.url="http://www.subsonic.org/" \
+      org.label-schema.vcs-type="Git" \
+      org.label-schema.vcs-url="https://github.com/mbirth/docker-subsonic"
 
 RUN apk upgrade -U \
  && apk add ca-certificates ffmpeg lame tzdata \

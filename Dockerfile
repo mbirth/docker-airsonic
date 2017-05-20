@@ -11,7 +11,7 @@ LABEL org.label-schema.name="Subsonic" \
       org.label-schema.vcs-url="https://github.com/mbirth/docker-subsonic"
 
 RUN apk upgrade -U \
- && apk add ca-certificates ffmpeg lame tzdata \
+ && apk add ca-certificates openssl ffmpeg lame tzdata \
  && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
  && echo "${TZ}" > /etc/timezone \
  && mkdir -p /data/transcode /music/ /playlists/ /podcasts/ \

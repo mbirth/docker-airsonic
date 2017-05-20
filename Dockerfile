@@ -19,7 +19,7 @@ RUN apk upgrade -U \
  && ln -s /usr/bin/ffmpeg /data/transcode/ffmpeg \
  && cd  ${CATALINA_HOME}/webapps/ \
  && rm -rf ROOT \
- && wget -q "http://downloads.sourceforge.net/project/subsonic/subsonic/$SUBSONIC_VERSION/subsonic-$SUBSONIC_VERSION-war.zip?r=http%3A%2F%2Fwww.subsonic.org%2Fpages%2Fdownload2.jsp%3Ftarget%3Dsubsonic-$SUBSONIC_VERSION-standalone.tar.gz&ts=1431096340&use_mirror=garr" \
+ && wget -q "https://sourceforge.net/projects/subsonic/files/subsonic/$SUBSONIC_VERSION/subsonic-${SUBSONIC_VERSION}-war.zip" \
     -O subsonic.war.zip \
  && unzip subsonic.war.zip \
  && rm subsonic.war.zip \

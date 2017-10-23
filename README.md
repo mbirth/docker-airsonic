@@ -8,10 +8,10 @@ This repository contains configuration files for building a
 Noteworthy
 ----------
 
-* [Subsonic 6.1.1](http://www.subsonic.org/)
+* [Subsonic 6.1.2](http://www.subsonic.org/)
 * based on [cyrilix](https://github.com/cyrilix)/[docker-subsonic](https://github.com/cyrilix/docker-subsonic)
 * uses [jeanblanchard](https://github.com/jeanblanchard)/[tomcat](https://hub.docker.com/r/jeanblanchard/tomcat/) with Alpine Linux
-* compiles to a 266 MB image instead of [cyrilix](https://hub.docker.com/r/cyrilix/subsonic/)'s 484 MB
+* compiles to a 262 MB image instead of [cyrilix](https://hub.docker.com/r/cyrilix/subsonic/)'s 484 MB
 
 
 Volumes

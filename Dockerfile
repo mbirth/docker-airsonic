@@ -1,6 +1,6 @@
 FROM jeanblanchard/tomcat:8
 
-ENV SUBSONIC_VERSION="6.1.2" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" TZ="Europe/Berlin" MAX_MEM="256"
+ENV SUBSONIC_VERSION="6.1.3" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" TZ="Europe/Berlin" MAX_MEM="256"
 
 LABEL maintainer="Markus Birth <markus@birth-online.de>"
 LABEL version="$SUBSONIC_VERSION"

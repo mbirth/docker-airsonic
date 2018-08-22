@@ -1,23 +1,23 @@
 This repository contains configuration files for building a 
-[Docker](https://docker.com/) image for the Subsonic media streamer.
+[Docker](https://docker.com/) image for the Airsonic media streamer.
 
-[![](https://imagelayers.io/badge/mbirth/subsonic:latest.svg)](https://imagelayers.io/?images=mbirth/subsonic:latest 'Get your own badge on imagelayers.io')
-[![](https://images.microbadger.com/badges/image/mbirth/subsonic.svg)](http://microbadger.com/#/images/mbirth/subsonic "Get your own image badge on microbadger.com")
+[![](https://imagelayers.io/badge/mbirth/airsonic:latest.svg)](https://imagelayers.io/?images=mbirth/airsonic:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/mbirth/airsonic.svg)](http://microbadger.com/#/images/mbirth/airsonic "Get your own image badge on microbadger.com")
 
 
 Noteworthy
 ----------
 
-* [Subsonic 6.1.3](http://www.subsonic.org/)
+* [Airsonic 10.1.2](https://airsonic.github.io/)
 * based on [cyrilix](https://github.com/cyrilix)/[docker-subsonic](https://github.com/cyrilix/docker-subsonic)
 * uses [jeanblanchard](https://github.com/jeanblanchard)/[tomcat](https://hub.docker.com/r/jeanblanchard/tomcat/) with Alpine Linux
-* compiles to a 262 MB image instead of [cyrilix](https://hub.docker.com/r/cyrilix/subsonic/)'s 484 MB
+* compiles to a 266 MB image instead of [cyrilix](https://hub.docker.com/r/cyrilix/subsonic/)'s 484 MB
 
 
 Volumes
 -------
 
-* `/subsonic` --- Directory to store Subsonic's log, configuration and database
+* `/data` --- Directory to store Airsonic's log, configuration and database
 * `/music` --- Default music folder
 * `/podcasts` --- Default podcast folder
 * `/playlists` --- Default playlist folder
@@ -34,7 +34,7 @@ Build your own image
 --------------------
 
 ```shell
-$ docker build -t <your-name>/docker-subsonic .
+$ docker build -t <your-name>/docker-airsonic .
 ```
 
 
@@ -44,11 +44,11 @@ Get a pre-built image
 A current image is available as a trusted build from the Docker index:
 
 ```shell
-$ docker pull mbirth/subsonic
+$ docker pull mbirth/airsonic
 ```
 
 The repository page is at
-https://hub.docker.com/r/mbirth/subsonic/
+https://hub.docker.com/r/mbirth/airsonic/
 
 
 Run a container with this image
@@ -59,6 +59,6 @@ $ docker run \
   --detach \
   --publish 8080:8080 \
   --volume "/wherever/your/music/is:/music/:ro" \
-  <your-name>/subsonic
+  <your-name>/airsonic
 
 ```

@@ -1,4 +1,4 @@
-FROM jeanblanchard/tomcat:8
+FROM jeanblanchard/tomcat:9
 
 ENV AIRSONIC_VERSION="10.1.2" LC_ALL="C.UTF-8" LANG="C.UTF-8" LANGUAGE="C.UTF-8" TZ="Europe/Berlin" MAX_MEM="256"
 
@@ -21,9 +21,6 @@ RUN apk upgrade -U \
  && rm -rf ROOT \
  && wget -q "https://github.com/airsonic/airsonic/releases/download/v${AIRSONIC_VERSION}/airsonic.war" \
     -O ROOT.war \
- && mkdir -p ROOT/WEB-INF/lib \
- && wget -q "https://github.com/jai-imageio/jai-imageio-core/releases/download/jai-imageio-core-1.4.0/jai-imageio-core-1.4.0.jar" \
-    -O ROOT/WEB-INF/lib/jai-imageio-core-1.4.0.jar \
  && apk del tzdata \
  && rm -rf /var/cache/*
 

@@ -8,7 +8,7 @@ This repository contains configuration files for building a
 Noteworthy
 ----------
 
-* [Airsonic 10.1.2](https://airsonic.github.io/)
+* [Airsonic 10.5.0](https://airsonic.github.io/)
 * based on [cyrilix](https://github.com/cyrilix)/[docker-subsonic](https://github.com/cyrilix/docker-subsonic)
 * uses [jeanblanchard](https://github.com/jeanblanchard)/[tomcat](https://hub.docker.com/r/jeanblanchard/tomcat/) with Alpine Linux
 * compiles to a 266 MB image instead of [cyrilix](https://hub.docker.com/r/cyrilix/subsonic/)'s 484 MB

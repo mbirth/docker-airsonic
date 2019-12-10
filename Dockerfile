@@ -1,6 +1,6 @@
-FROM jeanblanchard/tomcat:9
+FROM jeanblanchard/tomcat:8
 
-ENV AIRSONIC_VERSION="10.1.2" LC_ALL="C.UTF-8" LANG="C.UTF-8" LANGUAGE="C.UTF-8" TZ="Europe/Berlin" MAX_MEM="256"
+ENV AIRSONIC_VERSION="10.5.0" LC_ALL="C.UTF-8" LANG="C.UTF-8" LANGUAGE="C.UTF-8" TZ="Europe/Berlin" MAX_MEM="256"
 
 LABEL maintainer="Markus Birth <markus@birth-online.de>"
 LABEL version="$AIRSONIC_VERSION"
